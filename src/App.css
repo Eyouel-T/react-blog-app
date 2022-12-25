@@ -1,14 +1,18 @@
 .App {
   text-align: center;
+  background: linear-gradient(146.65deg, #020213 0.93%, #091C38 97.36%);
+}
+body{
+  background: linear-gradient(146.65deg, #020213 0.93%, #091C38 97.36%);
 }
 
 .nav-bar{
-  background-color: blue;
   color: white;
   overflow: hidden;
   align-items: center;
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid oldlace;
 }
 .nav-bar ul{
   margin-bottom: 0px;
@@ -18,7 +22,10 @@
   padding: 10px;
   float: left;
 }
-.n 
+.nav-bar a{
+  color: white;
+  text-decoration: none;
+}
 
 .search-bar{
   float: right;
@@ -26,9 +33,45 @@
 }
 .search-bar input{
   margin-left: 7px;
-  background-color: brown;
+  background-color:  #091C38;
   border: none;
+  margin-right: 7px;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
 }
 .search-bar img{
   height: 24px;
+}
+.blog{
+  margin: 15px;
+  max-width: 290px;
+  color: white;
+}
+.blog p{
+  text-align: left;
+  padding: 0 5%;
+}
+.blog h4{
+  text-align: left;
+  padding: 2% 5%;
+}
+
+
+
+
+
+
+
+
+
+.footer{
+  background-color:#383FEF;
+  color: white;
+  height: 150px;
+
+}
+.footer p{
+  padding-right: 15px;
+  margin-bottom: 0;
 }
