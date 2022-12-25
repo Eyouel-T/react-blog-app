@@ -5,7 +5,7 @@ export default function Blog(props){
     return(
         <div className="blog">
             <img src={props.img}/>
-            <h4><a href="./blog.js">{props.title}</a></h4>
+            <h4><a href={`./detail/${1}`}>{props.title}</a></h4>
             <p>{props.tags}</p>
             <p>{props.body}
                
