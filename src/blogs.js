@@ -1,5 +1,6 @@
 export default [
     {
+        id: 1,
         img: "./Images/blog-image.png",
         title : "blog 1",
         tags: ["fun","tech","code"],
@@ -7,7 +8,8 @@ export default [
         duration: "5",
         date: "12 July 2022",
     },
-    {
+    {   
+        id: 2,
         img: "./Images/blog-image.png",
         title : "blog 2",
         tags: ["fun"," tech","code"],
@@ -16,6 +18,7 @@ export default [
         date: "12 July 2022",
     },
     {
+        id: 3,
         img: "./Images/blog-image.png",
         title : "blog 3",
         tags: ["fun","tech","code"],
@@ -24,6 +27,7 @@ export default [
         date: "12 July 2022",
     },
     {
+        id: 4,
         img: "./Images/blog-image.png",
         title : "blog 4",
         tags: ["fun","tech","code"],
