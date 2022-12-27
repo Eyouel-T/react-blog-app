@@ -3,6 +3,7 @@ import blogs from "./blogs";
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Detail from "./detail";
+import Add from "./add";
 
 
 
@@ -30,6 +31,7 @@ export default function Main(){
         <div className="main container">
             <div className="row">
                 {blogItems}
+                <Add/>
             </div>
 
         

@@ -1,7 +1,7 @@
 export default [
     {
         id: 1,
-        img: "./Images/blog-image.png",
+        img: "./images/blog-image.png",
         title : "blog 1",
         tags: ["fun","tech","code"],
         body: "this is the sample body of the blog article. ",

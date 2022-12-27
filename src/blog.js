@@ -7,7 +7,7 @@ export default function Blog(props){
     return(
         <div className="blog">
             <img src={props.img}/>
-        
+            {console.log(`blog:${props.img}`)}
             <h4><Link to={`./detail/${blogId}`}>{props.title}</Link></h4>
             <p>{props.tags}</p>
             <p>{props.body}
