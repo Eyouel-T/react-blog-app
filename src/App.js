@@ -13,13 +13,13 @@ import { useRef } from 'react';
 
 
 function App() {
-  const dataRef = useRef()
- 
-  const submithandler = (e) => {
-    e.preventDefault()
-    handleSubmit(dataRef.current.value)
-    dataRef.current.value = ""
-  }
+//   const dataRef = useRef()
+//  
+//   const submithandler = (e) => {
+//     e.preventDefault()
+//     handleSubmit(dataRef.current.value)
+//     dataRef.current.value = ""
+//   }
   return (
     <div className="App">
 
@@ -30,10 +30,10 @@ function App() {
           <Route  path={`/detail/`} element={<Detail/>}/>
           <Route  path={`/detail/:blogId`} element={<Detail/>}/>
         </Routes>
-        <form onSubmit={submithandler}>
+        {/* <form onSubmit={submithandler}>
         <input type= "text" ref={dataRef} />
         <button type = "submit">Save</button>
-      </form>
+      </form> */}
         <Footer/>
 
     </div>
