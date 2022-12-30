@@ -51,7 +51,7 @@ export default function Main(){
                           title={blog.title}
                           body={blog.body}
                           duration={blog.duration}
-                          date= "today"
+                          date= {blog.date}
                           
                     />
                 </div>
