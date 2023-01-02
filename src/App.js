@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import blogs from './blogs';
 import handleSubmit from './handles/handlesubmit';
 import { useRef } from 'react';
+import Add from './add';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/" element={<Main/>}/>
           <Route  path={`/detail/`} element={<Detail/>}/>
           <Route  path={`/detail/:blogId`} element={<Detail/>}/>
+          <Route  exact path={`/add/`} element={<Add/>}/>
         </Routes>
         {/* <form onSubmit={submithandler}>
         <input type= "text" ref={dataRef} />

@@ -3,6 +3,7 @@ import blogImage from "./images/blog-image.png";
 import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
 import blogs from "./blogs"
 import blogImg from "./images/blog-image.png"
+import clock from "./images/clock-icon.png"
 import { async } from '@firebase/util';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from "./firebase";
@@ -29,16 +30,24 @@ export default function Detail(){
     
     if(blog){
         return(
-            <div>
+            <div className='detail container'>
                 <h1>{blogId}</h1>
-                <img src={blogImg}/>
+                <img className='singleBlogImage' src={blogImg}/>
                 {/* {console.log(`blog:${blog.img}`)} */}
-                <p>{blog.tags}</p>
-                <p>{blog.body}
-                    
-                </p>
-                <p>{blog.duration} minutes read</p>
-                <p>{blog.date}</p>
+                <h2>{blog.title}</h2>
+                <div className='blogInfo'>
+                    <ul className='tags'>
+                        <li>{blog.tags}</li>
+                        
+                    </ul>
+                    <ul className='dateDuration'>
+                        <li>{blog.date}</li>
+                        <li><img src={clock}/>{blog.duration} minutes read</li>
+                    </ul>
+                </div>
+                <div className='blogBody'>
+                    <p>{blog.body}</p>
+                </div>
                 {/* {console.log(blogId)} */}
                 {/* <img width="500px" height="200px"src={blogImage}/>
                 <h4><a href="">{props.title}</a></h4>

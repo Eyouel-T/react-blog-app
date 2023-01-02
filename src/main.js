@@ -1,7 +1,7 @@
 import Blog from "./blog";
 import blogs from "./blogs";
 import  React , {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Routes, } from 'react-router-dom';
 import Detail from "./detail";
 import Add from "./add";
 import { db } from "./firebase";
@@ -62,7 +62,7 @@ export default function Main(){
                 <div className="row">
                     <h1></h1>
                     {blogItems}
-                    <Add/>
+                    <button><Link to={`/add/`}>add</Link></button>
                 </div>
     
             

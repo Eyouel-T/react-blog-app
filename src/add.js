@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import blogs from "./blogs";
 import { addDoc, collection, getDocs } from "@firebase/firestore";
 import { db } from "./firebase";
+import Main from './main';
 export default function Add(){
 
     // the state for the blogs
@@ -76,8 +77,8 @@ export default function Add(){
     function submithandler(event){
         event.preventDefault();
         console.log("form submitted");
-        
         handleSubmit(blog)
+        alert("your blog has been added successfully")
 
         // dataRef.current.value = ""
         
