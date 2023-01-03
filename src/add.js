@@ -4,6 +4,7 @@ import blogs from "./blogs";
 import { addDoc, collection, getDocs } from "@firebase/firestore";
 import { db } from "./firebase";
 import Main from './main';
+import {useNavigate } from "react-router-dom";
 export default function Add(){
 
     // the state for the blogs
@@ -13,7 +14,7 @@ export default function Add(){
         body:"",
         tags:"",
         duration: 2,
-        date:"17-10-24"
+        date:"17-10-24",
 
     })
     // a function that updates all fields held in state
@@ -26,6 +27,7 @@ export default function Add(){
             setBlog(Prevblog=>({
                 ...Prevblog,
                 [name]: value,
+                
             })
             )
     }
@@ -74,12 +76,13 @@ export default function Add(){
     }
     // const dataRef = useRef()
     // form submit handler function, it calls the function that handles the submit to the firestore
+    const navigate = useNavigate()
     function submithandler(event){
         event.preventDefault();
         console.log("form submitted");
         handleSubmit(blog)
         alert("your blog has been added successfully")
-
+        navigate("/")
         // dataRef.current.value = ""
         
     }

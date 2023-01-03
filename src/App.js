@@ -11,11 +11,11 @@ import blogs from './blogs';
 import handleSubmit from './handles/handlesubmit';
 import { useRef } from 'react';
 import Add from './add';
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
-
+import Login from './login';
+import Test from './test';
+ 
 function App() {
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  
 //   const dataRef = useRef()
 //  
 //   const submithandler = (e) => {
@@ -30,9 +30,12 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Main/>}/>
+          <Route  path={`/login/`} element={<Login/>}/>
           <Route  path={`/detail/`} element={<Detail/>}/>
           <Route  path={`/detail/:blogId`} element={<Detail/>}/>
           <Route  exact path={`/add/`} element={<Add/>}/>
+          <Route  exact path={`/test/`} element={<Test/>}/>
+
         
         </Routes>
         {/* <form onSubmit={submithandler}>

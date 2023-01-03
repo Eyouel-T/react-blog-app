@@ -7,8 +7,9 @@ import clock from "./images/clock-icon.png"
 import like from "./images/like-icon.png"
 import comment from "./images/comment-icon.png"
 import { async } from '@firebase/util';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from "./firebase";
+import Comments from './comments';
 export default function Detail(){
     // use the route parameters from the matched url
     const {blogId}= useParams();
@@ -29,7 +30,42 @@ export default function Detail(){
         }
         fetchData();
     }, [])
+
+    const [comment, setComment] = useState({
+        id:blogId,
+        author:"guest",
+        body:"",
+        date:"2-1-2023"
+    })
+    function handleChange(event){
+        const name = event.target.name;
+        const value= event.target .value;
+        setComment(prevComment=>({
+            ...prevComment,
+            [name]:value
+        }))
+    }
+    const handleSubmit = (comment) => {
+            const ref = collection(db, "comments") // Firebase creates this automatically
+         
+            let data = comment
+            
+            try {
+                addDoc(ref, data)
+            } catch(err) {
+                console.log(err)
+            }
+        }
+    function commentSubmitHandler(event){
+        event.preventDefault();
+        console.log(comment)
+        handleSubmit(comment)
+        
+        
+        
+    }
     
+
     if(blog){
         return(
             <div className='detail container'>
@@ -57,11 +93,14 @@ export default function Detail(){
                     <p>{blog.body}</p>
                     </div>
                 </div>
+                <div>
+                    <Comments id={blogId}/>
+                </div>
                 <div className='comment'> 
                     <h2>LEAVE A COMMENT</h2>
                     <div className="commentForm">
-                        <form>
-                            <textarea  type="textarea" name='comment' placeholder=' comment'/>
+                        <form onSubmit={commentSubmitHandler}>
+                            <textarea  onChange={handleChange} type="textarea" name='body' placeholder=' comment'/>
                             <br/>
                             <button type='submit'>submit</button>
                         </form>
