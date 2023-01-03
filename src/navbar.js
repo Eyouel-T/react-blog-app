@@ -5,7 +5,7 @@ export default function Navbar(){
     return(
         <div className="nav-bar">
           <ul className='nav-bar-ul'>
-            <li><a href='#'>Home</a></li>
+            <li><Link to={`/`}>Home</Link></li>
             <li><a href='#'>about</a></li>
             <li><Link to={`/add/`}>write</Link></li>
             

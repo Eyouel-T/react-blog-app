@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-r
 import blogs from "./blogs"
 import blogImg from "./images/blog-image.png"
 import clock from "./images/clock-icon.png"
+import like from "./images/like-icon.png"
+import comment from "./images/comment-icon.png"
 import { async } from '@firebase/util';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from "./firebase";
@@ -45,8 +47,25 @@ export default function Detail(){
                         <li><img src={clock}/>{blog.duration} minutes read</li>
                     </ul>
                 </div>
-                <div className='blogBody'>
+                
+                <div className='blogBody' >
+                    <div>
+                        <img src={like}/>
+                        <img src={comment}/>
+                    </div>
+                    <div>
                     <p>{blog.body}</p>
+                    </div>
+                </div>
+                <div className='comment'> 
+                    <h2>LEAVE A COMMENT</h2>
+                    <div className="commentForm">
+                        <form>
+                            <textarea  type="textarea" name='comment' placeholder=' comment'/>
+                            <br/>
+                            <button type='submit'>submit</button>
+                        </form>
+                    </div>
                 </div>
                 {/* {console.log(blogId)} */}
                 {/* <img width="500px" height="200px"src={blogImage}/>
