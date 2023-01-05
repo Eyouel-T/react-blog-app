@@ -16,13 +16,6 @@ import Test from './test';
  
 function App() {
   
-//   const dataRef = useRef()
-//  
-//   const submithandler = (e) => {
-//     e.preventDefault()
-//     handleSubmit(dataRef.current.value)
-//     dataRef.current.value = ""
-//   }
   return (
     <div className="App">
 
@@ -38,10 +31,7 @@ function App() {
 
         
         </Routes>
-        {/* <form onSubmit={submithandler}>
-        <input type= "text" ref={dataRef} />
-        <button type = "submit">Save</button>
-      </form> */}
+        
         <Footer/>
 
     </div>

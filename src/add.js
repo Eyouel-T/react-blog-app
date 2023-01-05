@@ -17,6 +17,7 @@ export default function Add(){
         date:"17-10-24",
 
     })
+    
     // a function that updates all fields held in state
     function handleChange(event){
         const name = event.target.name;
@@ -33,29 +34,19 @@ export default function Add(){
     }
     
     console.log(blog)
-    // this calculates the expected duration(length) of the blog 
-    function durationSetter(){
-        let blogLength = (blog.body.length)/4.7
-        console.log("length is ", blogLength)
-        let duration = Math.ceil(blogLength/238)
-        console.log("duration: ", duration)
-        // set the duration to the blog object and update the state
-        return duration
-        
-        
-        
-    };
-    let test= `sample text`
-    console.log(test)
+    
+    
+    //function that sets the duration and the date
     function dateAndDurationSetter(){
+        //setting the date
         const todaysDate = new Date();
         let day = todaysDate.getDate();
         let month = todaysDate.getMonth() + 1;
         let year = todaysDate.getFullYear();
         // This arrangement can be altered based on how we want the date's format to appear.
         let currentDate = `${day}-${month}-${year}`;
-        // console.log("trying to set the date here please")
-        // console.log(currentDate)
+        
+
 
         //calculating and setting the duration 
         let blogLength = (blog.body.length)/4.7
@@ -65,6 +56,7 @@ export default function Add(){
         // set the duration to the blog object and update the state
         // return {duration,currentDate}
         console.log("in the duration and date function")
+        //adding the duration and the date attributes the the blog 
         setBlog(Prevblog=>({
             ...Prevblog,
             duration:duration,
@@ -74,7 +66,7 @@ export default function Add(){
         
         
     }
-    // const dataRef = useRef()
+    
     // form submit handler function, it calls the function that handles the submit to the firestore
     const navigate = useNavigate()
     function submithandler(event){
@@ -82,7 +74,7 @@ export default function Add(){
         console.log("form submitted");
         handleSubmit(blog)
         alert("your blog has been added successfully")
-        navigate("/")
+        navigate("/")//redirect to the home page after blog submission
         // dataRef.current.value = ""
         
     }
@@ -99,10 +91,7 @@ export default function Add(){
                 console.log(err)
             }
         }
-    // const querySnapshot =  getDocs(collection(db, "users"));
-    // querySnapshot.forEach((doc) => {
-    //     console.log(`${doc.id} => ${doc.data()}`);
-    // });
+    
     return(
         <div>
             <form onSubmit={submithandler}>

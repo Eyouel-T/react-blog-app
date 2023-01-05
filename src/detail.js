@@ -1,42 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import blogImage from "./images/blog-image.png";
-import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, useParams, useNavigate } from "react-router-dom";
 import blogs from "./blogs"
 import blogImg from "./images/blog-image.png"
 import clock from "./images/clock-icon.png"
 import like from "./images/like-icon.png"
-import comment from "./images/comment-icon.png"
+import commentIcon from "./images/comment-icon.png"
 import { async } from '@firebase/util';
 import { addDoc, collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from "./firebase";
 import Comments from './comments';
+import { updateEmail } from 'firebase/auth';
 export default function Detail(){
+
     // use the route parameters from the matched url
     const {blogId}= useParams();
-    // fetch the specific blog that matches the Id
-    // const blog = blogs.find((blog)=> blog.id == 1)
-    const [blog, setBlogg] = useState()
-    // const {id} = blog
-    console.log("detaaailllllllllllllllllllllll")
+
+    //ititialize the blog state
+    const [blog, setBlog] = useState()
+    
+    //this use effect runs once
     useEffect(() => {
-        console.log("useeffectttttttttttttttttttttttttttttt")
+        
         async function fetchData(){
             const blogsRef = doc(db, "blogs", blogId);
             const blogsRefData = await getDoc(blogsRef)
             const finalBlogData = blogsRefData.data()
             console.log(finalBlogData)
-            setBlogg(()=>(finalBlogData))
+            setBlog(()=>(finalBlogData))
             
         }
         fetchData();
     }, [])
 
+    //set the comment state with default fields and values
     const [comment, setComment] = useState({
         id:blogId,
         author:"guest",
         body:"",
         date:"2-1-2023"
     })
+    
+    //executes everytime the comment textarea is updated
     function handleChange(event){
         const name = event.target.name;
         const value= event.target .value;
@@ -45,25 +50,32 @@ export default function Detail(){
             [name]:value
         }))
     }
+
+    // this submits the comment data to firebase
     const handleSubmit = (comment) => {
+            console.log("in the handlesubmit function with data", comment)
             const ref = collection(db, "comments") // Firebase creates this automatically
          
             let data = comment
             
             try {
                 addDoc(ref, data)
+                console.log("successfully submitted")
             } catch(err) {
                 console.log(err)
             }
         }
+    const navigate = useNavigate()    
+    //when the submit button is clicked to submit the comment
+
     function commentSubmitHandler(event){
         event.preventDefault();
         console.log(comment)
         handleSubmit(comment)
         
         
-        
     }
+    console.log("detail page rendered")
     
 
     if(blog){
@@ -87,15 +99,16 @@ export default function Detail(){
                 <div className='blogBody' >
                     <div>
                         <img src={like}/>
-                        <img src={comment}/>
+                        <a href='#leaveComment'><img src={commentIcon}/></a>
                     </div>
                     <div>
                     <p>{blog.body}</p>
                     </div>
                 </div>
                 <div>
-                    <Comments id={blogId}/>
+                    <Comments id={blogId} />
                 </div>
+                <section id='leaveComment'>
                 <div className='comment'> 
                     <h2>LEAVE A COMMENT</h2>
                     <div className="commentForm">
@@ -106,6 +119,7 @@ export default function Detail(){
                         </form>
                     </div>
                 </div>
+                </section>
                 {/* {console.log(blogId)} */}
                 {/* <img width="500px" height="200px"src={blogImage}/>
                 <h4><a href="">{props.title}</a></h4>
