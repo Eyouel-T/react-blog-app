@@ -1,4 +1,5 @@
 import Blog from "./blog";
+import loading from "./images/loading.png"
 import blogs from "./blogs";
 import  React , {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Link, Route, Routes, } from 'react-router-dom';
@@ -38,7 +39,7 @@ export default function Main(){
     )
     
     // if the blog items are returned from the database render the UI With the BLogs
-    if(blogItemList){
+    if(blogItemList.length>=1){
         console.log(blogItemList)
         //map through each blog that came from the firebase database and create a <Blog/> component with the attributes as props
         const blogItems = blogItemList.map(blog=>{
@@ -70,7 +71,11 @@ export default function Main(){
     }
     //if the blogs are not returned from the database
     else{
-        console.log("waiting for the database")
+        return(
+            <div className='loadingPage'>
+            <div className='loading'></div>
+        </div>
+        )
     }
      
     

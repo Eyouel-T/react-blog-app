@@ -6,6 +6,7 @@ import blogImg from "./images/blog-image.png"
 import clock from "./images/clock-icon.png"
 import like from "./images/like-icon.png"
 import commentIcon from "./images/comment-icon.png"
+import loading from "./images/loading.png"
 import { async } from '@firebase/util';
 import { addDoc, collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from "./firebase";
@@ -130,6 +131,14 @@ export default function Detail(){
                 <p>5 minutes read</p>
                 <p>today</p> */}
             </div>
+        )
+    }
+    else{
+        return(
+        <div className='loadingPage'>
+            <div className='loading'></div>
+        </div>
+        // <div className='loadingPage'><h2 className='loadingText'>Loading blog<img className='loadingImg' src={loading}/></h2></div>
         )
     }
     
