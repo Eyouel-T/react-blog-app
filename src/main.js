@@ -73,8 +73,8 @@ export default function Main(){
     else{
         return(
             <div className='loadingPage'>
-            <div className='loading'></div>
-        </div>
+                <div className='loading'></div>
+            </div>
         )
     }
      

@@ -1,7 +1,7 @@
 import { collection, doc, getDocs, onSnapshot, query, where } from "firebase/firestore";
 import { Component, useEffect, useState } from "react";
 import { db } from "./firebase";
-
+import profile from "./images/profile-icon.png"
 export default function Comments(props){
     
     console.log("comment component rendered")
@@ -33,8 +33,28 @@ export default function Comments(props){
     if(comments){
         const mappedComments = comments.map(comment=>{
             return (
-                <div>
-                    <p>{comment.body}</p>
+                <div className='comments-section'>
+                    <div >
+                        <img className="profile-icon" src={profile}/>
+                    </div>
+
+                    <div>
+                        
+                    <div className="author-date">
+                        <div className="author"> 
+                            <p>{comment.author}</p>
+                        </div>
+                        <div className="date">
+                            <p>{comment.date}</p>
+                        </div>
+
+                    </div>
+                    
+                    <div className="body">
+                        <p>{comment.body}</p>
+                    </div>
+
+                    </div>
                 </div>
             )
         })

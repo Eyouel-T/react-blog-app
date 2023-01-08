@@ -106,11 +106,15 @@ export default function Detail(){
                     <p>{blog.body}</p>
                     </div>
                 </div>
-                <div>
-                    <Comments id={blogId} />
+                <div className='comments'>
+                <h2>COMMENTS</h2>
+                    <div >
+                        <Comments id={blogId} />
+                    </div>
+                    
                 </div>
                 <section id='leaveComment'>
-                <div className='comment'> 
+                <div className='leave-comment'> 
                     <h2>LEAVE A COMMENT</h2>
                     <div className="commentForm">
                         <form onSubmit={commentSubmitHandler}>

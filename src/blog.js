@@ -1,4 +1,5 @@
 import blogImage from "./images/blog-image.png"
+import clock from "./images/clock-icon.png"
 import blogs from "./blogs"
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
@@ -18,9 +19,11 @@ export default function Blog(props){
             <h4><Link to={`./detail/${blogId}`}>{props.title}</Link></h4>
             <p>{props.tags}</p>
             {props.body.length<100? <p>{props.body}</p> :  <p>{previewBlog()}<Link to={`./detail/${blogId}`}>...</Link></p>}
-                
-            <p>{props.duration} minutes read</p>
-            <p>{props.date}</p>
+            <div className="date-and-duration">
+                <p><img className="clock-icon" src={clock}/>{props.duration} minutes read</p>
+                <p>{props.date}</p> 
+            </div>
+            
         </div>
     );
 }
