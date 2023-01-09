@@ -1,7 +1,7 @@
 import searchLogo from "./images/search-icon2.png";
 import React from 'react';
 import { Link } from "react-router-dom";
-export default function Navbar(){
+export default function Navbar(props){
     return(
         <div className="nav-bar">
           <ul className='nav-bar-ul'>
@@ -14,6 +14,7 @@ export default function Navbar(){
           <div className='search-bar'>
             <img alt="search"src={searchLogo}/>
             <input type="text"></input>
+            {props.user&& <p>{props.user.displayName}</p>}
           </div>
         </div>
         

@@ -1,7 +1,7 @@
 import GoogleButton from 'react-google-button'
 import { addDoc, collection, connectFirestoreEmulator, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithEmailAndPassword,
-          createUserWithEmailAndPassword, sendPasswordResetEmail, signOut, } from "firebase/auth";
+          createUserWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged} from "firebase/auth";
 import { db } from './firebase';
 import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +34,7 @@ export default function Login(){
         alert(err.message);
     }
     };
+    
     return(
         <div >
             <GoogleButton onClick={signInWithGoogle}/>

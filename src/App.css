@@ -177,14 +177,9 @@ body{
   text-align: left;
   margin: 24px 0px;
   padding-bottom:12px;
+  border-bottom: 2px solid #383FEF;
 }
-.comments h2
-{
 
-    content:' ';
-    display:block;
-    border-bottom: 2px solid #383FEF;
-}
 .profile-icon{ 
   width: 40px;
 }
@@ -194,7 +189,7 @@ body{
   
 }
 .date{
-  color: #36364b;
+  color: #313144;
 }
 .author{
   margin-right: 5px;
