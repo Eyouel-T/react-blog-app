@@ -12,7 +12,8 @@ import { addDoc, collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from "./firebase";
 import Comments from './comments';
 import { updateEmail } from 'firebase/auth';
-export default function Detail(){
+import { setUserProperties } from 'firebase/analytics';
+export default function Detail(props){
 
     // use the route parameters from the matched url
     const {blogId}= useParams();
@@ -34,10 +35,17 @@ export default function Detail(){
         fetchData();
     }, [])
 
+    const [username, setUsername] = useState()
+
+    function usernameSetter(){
+        console.log("in the username setter functionnnnnnnnnnnnnnnnn")
+        console.log()
+
+    }
     //set the comment state with default fields and values
     const [comment, setComment] = useState({
         id:blogId,
-        author:"guest",
+        author:username,
         body:"",
         date:"2-1-2023"
     })
@@ -50,6 +58,7 @@ export default function Detail(){
             ...prevComment,
             [name]:value
         }))
+        usernameSetter()
     }
 
     // this submits the comment data to firebase
@@ -72,7 +81,9 @@ export default function Detail(){
     function commentSubmitHandler(event){
         event.preventDefault();
         console.log(comment)
+       
         handleSubmit(comment)
+
         
         
     }
@@ -125,6 +136,7 @@ export default function Detail(){
                     </div>
                 </div>
                 </section>
+                
                 {/* {console.log(blogId)} */}
                 {/* <img width="500px" height="200px"src={blogImage}/>
                 <h4><a href="">{props.title}</a></h4>

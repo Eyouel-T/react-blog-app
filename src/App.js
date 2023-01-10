@@ -20,8 +20,8 @@ function App() {
   auth.onAuthStateChanged(user=>{
     if (user) {
       // User is signed in.
-      console.log(user.displayName)
-      console.log("user is signed in")
+      // console.log(user.displayName)
+      // console.log("user is signed in")
       setLoggedInUser(user)
     } else {
       // No user is signed in.
@@ -36,8 +36,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Main/>}/>
           <Route  path={`/login/`} element={<Login/>}/>
-          <Route  path={`/detail/`} element={<Detail/>}/>
-          <Route  path={`/detail/:blogId`} element={<Detail/>}/>
+          <Route  path={`/detail/`} element={<Detail user={loggedInUser}/>}/>
+          <Route  path={`/detail/:blogId`} element={<Detail user={loggedInUser}/>}/>
           <Route  exact path={`/add/`} element={<Add/>}/>
           <Route  exact path={`/test/`} element={<Test/>}/>
 

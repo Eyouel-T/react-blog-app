@@ -27,7 +27,7 @@ export default function Login(){
         
         }
         console.log("about to navigate")
-        navigate("/test")
+        navigate("/")
         
     } catch (err) {
         console.error(err);
