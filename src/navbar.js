@@ -1,12 +1,13 @@
 import searchLogo from "./images/search-icon2.png";
 import signout from "./images/sign-out-icon.jpg";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate  } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
 
 export default function Navbar(props){
   const navigate = useNavigate()
+  
   function signoutClick(){
     signOut(auth)
     console.log("user is signed out bruuuh")
