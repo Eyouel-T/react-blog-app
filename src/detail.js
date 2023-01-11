@@ -45,7 +45,7 @@ export default function Detail(props){
     //set the comment state with default fields and values
     const [comment, setComment] = useState({
         id:blogId,
-        author:username,
+        author:"guest",
         body:"",
         date:"2-1-2023"
     })
