@@ -93,11 +93,11 @@ export default function Add(){
         }
     
     return(
-        <div>
+        <div className='add-blog'>
             <form onSubmit={submithandler}>
-                <input type="text" onChange={handleChange} name='title' placeholder=' blog title'/>
+                <input  type="text" onChange={handleChange} name='title' placeholder=' blog title'/>
                 <br/>
-                <input type="text" onChange={handleChange} name='tags' placeholder='tags'/>
+                <input type="text" onChange={handleChange} name='tags' placeholder=' tags'/>
                 <br/>
                 <textarea rows = "5" cols = "60" type="textarea" onChange={handleChange} name='body' placeholder=' body'/>
                 <br/>

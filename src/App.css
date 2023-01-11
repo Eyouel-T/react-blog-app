@@ -114,7 +114,39 @@ body{
 }
 
 
-
+/* write or add page */
+.add-blog{
+  margin: auto;
+  max-width: 599px;
+  margin-bottom: 20px;
+}
+.add-blog input{
+  margin: 10px 0px;
+  width: 100%;
+  background-color: #050C20;
+  color: white;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid #383FEF;
+}
+.add-blog textarea{
+  width: 100%;
+  height: 200px;
+  background-color: #050C20;
+  color: white;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid #383FEF;
+}
+.add-blog button{
+  height: 45px;
+  width: 100%;
+  color: white;
+  background-color: #383FEF;
+  border: none;
+}
 /* this code is used to style the detail page or the single blog page*/
 
 
