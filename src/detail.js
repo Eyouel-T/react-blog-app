@@ -43,13 +43,14 @@ export default function Detail(props){
 
     }
     //set the comment state with default fields and values
+    const [author, setAuthor] = useState(props.user? props.user.displayName: "guest")
+    console.log(author)
     const [comment, setComment] = useState({
         id:blogId,
-        author:"guest",
+        author:author,
         body:"",
         date:"2-1-2023"
     })
-    
     //executes everytime the comment textarea is updated
     function handleChange(event){
         const name = event.target.name;
