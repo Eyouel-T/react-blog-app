@@ -50,9 +50,9 @@ export default function Add(){
 
         //calculating and setting the duration 
         let blogLength = (blog.body.length)/4.7
-        console.log("length is ", blogLength)
+        console.log("length is ", blogLength,"words long")
         let duration = Math.ceil(blogLength/238)
-        console.log("duration: ", duration)
+        console.log(" Math.ceil(blogLength/238) = duration: ", duration)
         // set the duration to the blog object and update the state
         // return {duration,currentDate}
         console.log("in the duration and date function")
@@ -94,6 +94,7 @@ export default function Add(){
     
     return(
         <div className='add-blog'>
+            <h1>Write a new blog</h1>
             <form onSubmit={submithandler}>
                 <input  type="text" onChange={handleChange} name='title' placeholder=' blog title'/>
                 <br/>

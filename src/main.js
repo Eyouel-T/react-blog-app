@@ -7,6 +7,9 @@ import Detail from "./detail";
 import Add from "./add";
 import { db } from "./firebase";
 import { addDoc, collection, getDocs,onSnapshot} from "@firebase/firestore";
+import Featured from "./featured";
+import featured from "./images/featured.png"
+
 
 
 
@@ -57,14 +60,31 @@ export default function Main(){
                 </div>
             )
         })
+        //featuring a random Blog
+        const featuredBlog = blogItemList[Math.floor(Math.random()*blogItemList.length)]
         return(
             <div className="main container">
+                <section>
+                <div className="row featured-blog-section">
+                    <Featured
+                                id={featuredBlog.id}
+                                tags={featuredBlog.tags}
+                                img={featured}
+                                title={featuredBlog.title}
+                                body={featuredBlog.body}
+                                duration={featuredBlog.duration}
+                                date= {featuredBlog.date}
+                        />
+                </div>
+                </section>
+                <section>
                 <div className="row">
                     <h1></h1>
+                    
                     {blogItems}
                     <button><Link to={`/add/`}>add</Link></button>
                 </div>
-    
+                </section>
             
             </div>
         );

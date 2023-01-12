@@ -5,7 +5,9 @@
 body{
   background: linear-gradient(146.65deg, #020213 0.93%, #091C38 97.36%);
 }
-
+section{
+  margin: 30px 0px;
+}
 
 /* Navigation Bar */
 
@@ -87,6 +89,21 @@ body{
 
 /* the main section */
 
+
+section .header{
+  text-align: left;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/*Featured Blog*/
+.featured-blog-image{
+  /* display: flex; */
+}
+.featured-blog-details{
+  text-align: left;
+  color: white;
+}
 .blog{
   margin: 15px;
   max-width: 290px;
@@ -119,7 +136,9 @@ body{
   margin: auto;
   max-width: 599px;
   margin-bottom: 20px;
+  color: white;
 }
+
 .add-blog input{
   margin: 10px 0px;
   width: 100%;
@@ -176,9 +195,6 @@ body{
   justify-content: space-between;
   margin: auto;
   align-items: center;
-}
-.tags{
-
 }
 .dateDuration{
 

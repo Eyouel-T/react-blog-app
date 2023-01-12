@@ -1,5 +1,5 @@
 import searchLogo from "./images/search-icon2.png";
-import signout from "./images/sign-out-icon.jpg";
+import signout from "./images/sign-out-icon.png";
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate  } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -24,7 +24,7 @@ export default function Navbar(props){
             <li><a href='#'>contact</a></li>
           </ul>
           <div className='search-bar'>
-            <img alt="search"src={searchLogo}/>
+            {/* <img alt="search"src={searchLogo}/> */}
             {/* <input type="text"></input> */}
             {props.user?<> <p>{props.user.displayName}</p><img src={signout} onClick={signoutClick}/></>: <Link to={`/login`}>Login</Link>}
           </div>
