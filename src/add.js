@@ -5,12 +5,14 @@ import { addDoc, collection, getDocs } from "@firebase/firestore";
 import { db } from "./firebase";
 import Main from './main';
 import {useNavigate } from "react-router-dom";
-export default function Add(){
+export default function Add(props){
 
+    // the state for the author
+    const [author, setAuthor] = useState(props.user? props.user.displayName: "guest")
     // the state for the blogs
     const [blog, setBlog] = useState({
         title:"test",
-        author:"admins",
+        author: author,
         body:"",
         tags:"",
         duration: 2,

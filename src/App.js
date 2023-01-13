@@ -38,7 +38,7 @@ function App() {
           <Route  path={`/login/`} element={<Login/>}/>
           <Route  path={`/detail/`} element={<Detail user={loggedInUser}/>}/>
           <Route  path={`/detail/:blogId`} element={<Detail user={loggedInUser}/>}/>
-          <Route  exact path={`/add/`} element={loggedInUser&&<Add/>}/>
+          <Route  exact path={`/add/`} element={loggedInUser&&<Add user={loggedInUser}/>}/>
           <Route  exact path={`/test/`} element={<Test/>}/>
 
         
