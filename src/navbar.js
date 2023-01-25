@@ -19,7 +19,7 @@ export default function Navbar(props){
           <ul className='nav-bar-ul'>
             <li><Link to={`/`}>Home</Link></li>
             <li><a href='#'>about</a></li>
-            <li><Link to={`/add/`}>write</Link></li>
+            <li>{props.user? <Link to={`/add/`}>write</Link>: <Link to={`/login/`}>write</Link>}</li>
             
             <li><a href='#'>contact</a></li>
           </ul>
