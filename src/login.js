@@ -36,8 +36,12 @@ export default function Login(){
     };
     
     return(
-        <div >
-            <GoogleButton onClick={signInWithGoogle}/>
+        <div className='login-page'>
+            <h1 className='login-header'>Sign In</h1>
+            
+            <GoogleButton className='google-button' onClick={signInWithGoogle}/>
+            
+            
         </div>
     )
 }
