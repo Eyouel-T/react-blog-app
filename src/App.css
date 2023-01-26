@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background: linear-gradient(146.65deg, #020213 0.93%, #091C38 97.36%);
+  /* background: linear-gradient(146.65deg, #020213 0.93%, #091C38 97.36%); */
+  background-color: #FFFFFF;
 }
 body{
   background: linear-gradient(146.65deg, #020213 0.93%, #091C38 97.36%);
@@ -13,7 +14,6 @@ section{
 
 
 .nav-bar{
-  color: white;
   overflow: hidden;
   align-items: center;
   display: flex;
@@ -27,11 +27,17 @@ section{
   list-style-type: none;
   padding: 10px;
   float: left;
+  transition: border-bottom 2s ease;
 }
+
 .nav-bar a{
-  color: white;
   text-decoration: none;
 }
+
+/* .nav-bar li:hover{
+  border-bottom: 1px solid blue;
+  
+} */
 
 .search-bar{
   float: right;
@@ -45,7 +51,7 @@ section{
   margin-right: 7px;
   border-radius: 5px;
   border: 1px solid white;
-  color: white;
+
 }
 .search-bar img{
   height: 24px;
@@ -57,12 +63,16 @@ section{
 /*The login page*/
 
 .login-page{
+  display: flex;
   text-align: center;
-  margin: 100px 0px;
+  margin: 80px 0px;
+  min-height: 300px;
+}
+.login-page-content{
+  margin: auto;
 }
 .login-header{
-  margin: 40px 0px;
-  color: white;
+  margin: 0px 0px 40px 0px;
 }
 .google-button{
   margin: auto;
@@ -81,8 +91,8 @@ section{
 .loading {
   width: 2rem;
   height: 2rem;
-  border: 5px solid #f3f3f3;
-  border-top: 6px solid #091C38;
+  border: 6px solid #f3f3f3;
+  border-top: 5px solid #091C38;
   border-radius: 100%;
   margin: auto;
   visibility: hidden;
@@ -105,7 +115,6 @@ section{
 
 section .header{
   text-align: left;
-  color: white;
   margin-bottom: 20px;
 }
 
@@ -116,12 +125,10 @@ section .header{
 }
 .featured-blog-details{
   text-align: left;
-  color: white;
 }
 .blog{
   margin: 15px;
   max-width: 290px;
-  color: white;
 }
 .blog p{
   text-align: left;
@@ -132,7 +139,6 @@ section .header{
   padding: 2% 5%;
 }
 .blog h4 a{
-  color: white;
   text-decoration: none;
 }
 .date-and-duration{
@@ -150,14 +156,13 @@ section .header{
   margin: auto;
   max-width: 599px;
   margin-bottom: 20px;
-  color: white;
 }
 
 .add-blog input{
   margin: 10px 0px;
   width: 100%;
   background-color: #050C20;
-  color: white;
+
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -167,7 +172,7 @@ section .header{
   width: 100%;
   height: 200px;
   background-color: #050C20;
-  color: white;
+
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -176,7 +181,6 @@ section .header{
 .add-blog button{
   height: 45px;
   width: 100%;
-  color: white;
   background-color: #383FEF;
   border: none;
 }
@@ -189,7 +193,6 @@ section .header{
 
 }
 .detail{
-  color: white;
   text-align: center;
   max-width: 80%;
   
@@ -278,7 +281,6 @@ section .header{
   width: 100%;
   height: 117px;
   background-color: #050C20;
-  color: white;
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -288,7 +290,6 @@ section .header{
 .leave-comment button{
   height: 45px;
   width: 100%;
-  color: white;
   background-color: #383FEF;
   border: none;
 }
@@ -300,7 +301,7 @@ section .header{
 
 .footer{
   background-color:#383FEF;
-  color: white;
+
   height: 150px;
 
 }

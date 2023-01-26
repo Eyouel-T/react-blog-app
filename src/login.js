@@ -37,10 +37,11 @@ export default function Login(){
     
     return(
         <div className='login-page'>
+            <div className='login-page-content'>
             <h1 className='login-header'>Sign In</h1>
             
             <GoogleButton className='google-button' onClick={signInWithGoogle}/>
-            
+            </div>
             
         </div>
     )

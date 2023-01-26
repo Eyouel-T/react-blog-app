@@ -115,7 +115,10 @@ export default function Detail(props){
                         <a href='#leaveComment'><img src={commentIcon}/></a>
                     </div>
                     <div>
-                    <p>{blog.body}</p>
+                    <div
+                        dangerouslySetInnerHTML={{__html: blog.body}}
+                    />
+                    {/* <p>{blog.body}</p> */}
                     </div>
                 </div>
                 <div className='comments'>

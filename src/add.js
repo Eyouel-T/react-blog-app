@@ -5,6 +5,9 @@ import { addDoc, collection, getDocs } from "@firebase/firestore";
 import { db } from "./firebase";
 import Main from './main';
 import {useNavigate } from "react-router-dom";
+//rich text editor imports
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
 export default function Add(props){
 
     // the state for the author
@@ -26,6 +29,7 @@ export default function Add(props){
         const value = event.target.value;
         // const {duration,currentDate} = dateAndDurationSetter()
         // console.log(duration)
+        console.log("handlechange", event.target )
         dateAndDurationSetter()
             setBlog(Prevblog=>({
                 ...Prevblog,
@@ -93,7 +97,9 @@ export default function Add(props){
                 console.log(err)
             }
         }
-    
+    function handleBodyChange(text){
+        setBlog(prev=>({...prev, body:text}))
+    }
     return(
         <div className='add-blog'>
             <h1>Write a new blog</h1>
@@ -102,10 +108,12 @@ export default function Add(props){
                 <br/>
                 <input type="text" onChange={handleChange} name='tags' placeholder=' tags'/>
                 <br/>
-                <textarea rows = "5" cols = "60" type="textarea" onChange={handleChange} name='body' placeholder=' body'/>
+                <ReactQuill theme="snow" onChange={handleBodyChange} name='body' placeholder=' body'/>
+                {/* <textarea rows = "5" cols = "60" type="textarea" onChange={handleChange} name='body' placeholder=' body'/> */}
                 <br/>
                 <button type='submit'>submit</button>
             </form>
+            
              {/* <h1>{`${doc.id} => ${doc.data()}`}</h1> */}
 
 
