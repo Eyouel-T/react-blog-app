@@ -8,9 +8,10 @@ export default function Blog(props){
     // const blogBody = props.body
     function previewBlog(){
         let blogPreview = props.body.slice(0,100)
+        const previewHtml = blogPreview.replace(/(<([^>]+)>)/gi, "");
         console.log("this blog is waaaaaaaaaaaaaaaay too long")
-        console.log(blogPreview)
-        return blogPreview
+        console.log("previewHtml",previewHtml)
+        return previewHtml
     }
     return(
         <div className="blog">
@@ -19,6 +20,7 @@ export default function Blog(props){
             <h4><Link to={`./detail/${blogId}`}>{props.title}</Link></h4>
             <p>{props.tags}</p>
             {props.body.length<100? <p>{props.body}</p> :  <p>{previewBlog()}<Link to={`./detail/${blogId}`}>...</Link></p>}
+            
             <div className="date-and-duration">
                 <p><img className="clock-icon" src={clock}/>{props.duration} minutes read</p>
                 <p>{props.date}</p> 
