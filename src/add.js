@@ -108,7 +108,7 @@ export default function Add(props){
                 <br/>
                 <input type="text" onChange={handleChange} name='tags' placeholder=' tags'/>
                 <br/>
-                <ReactQuill theme="snow" onChange={handleBodyChange} name='body' placeholder=' body'/>
+                <ReactQuill theme="snow" onChange={handleBodyChange} name='body' placeholder=' body' value={blog.body}/>
                 {/* <textarea rows = "5" cols = "60" type="textarea" onChange={handleChange} name='body' placeholder=' body'/> */}
                 <br/>
                 <button type='submit'>submit</button>

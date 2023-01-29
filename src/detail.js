@@ -148,7 +148,7 @@ export default function Detail(props){
                     <h2>LEAVE A COMMENT</h2>
                     <div className="commentForm">
                         <form onSubmit={commentSubmitHandler}>
-                            <textarea  onChange={handleChange} type="textarea" name='body' placeholder=' comment'/>
+                            <textarea  onChange={handleChange} type="textarea" name='body' placeholder=' comment' value={comment.body}/>
                             <br/>
                             <button type='submit'>submit</button>
                         </form>
