@@ -55,10 +55,12 @@ export default function Detail(props){
     function handleChange(event){
         const name = event.target.name;
         const value= event.target .value;
+        dateSetter();
         setComment(prevComment=>({
             ...prevComment,
-            [name]:value
+            [name]:value,
         }))
+        
         usernameSetter()
     }
 
@@ -79,10 +81,23 @@ export default function Detail(props){
     const navigate = useNavigate()    
     //when the submit button is clicked to submit the comment
 
+    const dateSetter = ()=>{
+         //setting the correct date
+         const todaysDate = new Date();
+         let day = todaysDate.getDate();
+         let month = todaysDate.getMonth() + 1;
+         let year = todaysDate.getFullYear();
+         // This arrangement can be altered based on how we want the date's format to appear.
+         let currentDate = `${day}-${month}-${year}`;
+         console.log("current date is ", currentDate)
+        setComment(prevComment=>({
+            ...prevComment,
+            date: currentDate
+        }))
+    }
     function commentSubmitHandler(event){
         event.preventDefault();
         console.log(comment)
-       
         handleSubmit(comment)
 
         
